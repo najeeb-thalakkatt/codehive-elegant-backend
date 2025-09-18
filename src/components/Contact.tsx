@@ -3,38 +3,26 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
-import { Mail, MapPin, Phone, LinkedinIcon, Send } from "lucide-react";
+import { Mail, MapPin, Send } from "lucide-react";
 
 const Contact = () => {
   const contactInfo = [
     {
       icon: Mail,
       label: "Email",
-      value: "najeeb.1989@gmail.com",
-      href: "mailto:najeeb.1989@gmail.com"
-    },
-    {
-      icon: Phone,
-      label: "Phone",
-      value: "+46 0760025850",
-      href: "tel:+460760025850"
+      value: "hello@codehive.dev",
+      href: "#"
     },
     {
       icon: MapPin,
       label: "Location",
-      value: "Stockholm, Sweden",
+      value: "Available Worldwide",
       href: null
-    },
-    {
-      icon: LinkedinIcon,
-      label: "LinkedIn",
-      value: "najeeb-thalakkatt",
-      href: "https://www.linkedin.com/in/najeeb-thalakkatt/"
     }
   ];
 
   return (
-    <section id="contact" className="py-20 bg-background">
+    <section id="contact" className="py-20 relative">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16 fade-in">
           <h2 className="text-4xl md:text-5xl font-bold text-primary mb-6">
@@ -50,12 +38,12 @@ const Contact = () => {
           {/* Contact Form */}
           <Card className="card-gradient border-border/50 scale-in">
             <CardHeader>
-              <CardTitle className="text-2xl text-primary">Send us a Message</CardTitle>
+              <CardTitle className="text-2xl text-card-foreground">Send us a Message</CardTitle>
             </CardHeader>
             <CardContent className="space-y-6">
               <div className="grid md:grid-cols-2 gap-4">
                 <div className="space-y-2">
-                  <Label htmlFor="name" className="text-foreground">Name</Label>
+                  <Label htmlFor="name" className="text-card-foreground">Name</Label>
                   <Input 
                     id="name" 
                     placeholder="Your name" 
@@ -63,7 +51,7 @@ const Contact = () => {
                   />
                 </div>
                 <div className="space-y-2">
-                  <Label htmlFor="email" className="text-foreground">Email</Label>
+                  <Label htmlFor="email" className="text-card-foreground">Email</Label>
                   <Input 
                     id="email" 
                     type="email" 
@@ -73,7 +61,7 @@ const Contact = () => {
                 </div>
               </div>
               <div className="space-y-2">
-                <Label htmlFor="company" className="text-foreground">Company</Label>
+                <Label htmlFor="company" className="text-card-foreground">Company</Label>
                 <Input 
                   id="company" 
                   placeholder="Your company name" 
@@ -81,7 +69,7 @@ const Contact = () => {
                 />
               </div>
               <div className="space-y-2">
-                <Label htmlFor="project" className="text-foreground">Project Type</Label>
+                <Label htmlFor="project" className="text-card-foreground">Project Type</Label>
                 <Input 
                   id="project" 
                   placeholder="e.g., API Development, Cloud Migration, System Architecture" 
@@ -89,17 +77,16 @@ const Contact = () => {
                 />
               </div>
               <div className="space-y-2">
-                <Label htmlFor="message" className="text-foreground">Project Details</Label>
+                <Label htmlFor="message" className="text-card-foreground">Project Details</Label>
                 <Textarea 
                   id="message" 
                   placeholder="Tell us about your project requirements, timeline, and goals..."
                   className="min-h-[120px] border-border focus:border-accent"
                 />
               </div>
-              <Button className="w-full bg-accent hover:bg-accent-hover text-accent-foreground">
-                <Send className="mr-2 h-4 w-4" />
-                Send Message
-              </Button>
+              <p className="text-sm text-muted-foreground">
+                This form is for demonstration purposes. Please use the contact information below.
+              </p>
             </CardContent>
           </Card>
 
@@ -123,8 +110,8 @@ const Contact = () => {
                         <contact.icon className="h-6 w-6 text-accent" />
                       </div>
                       <div>
-                        <div className="font-medium text-foreground">{contact.label}</div>
-                        {contact.href ? (
+                        <div className="font-medium text-card-foreground">{contact.label}</div>
+                        {contact.href && contact.href !== "#" ? (
                           <a 
                             href={contact.href} 
                             className="text-muted-foreground hover:text-accent transition-colors"
@@ -148,11 +135,8 @@ const Contact = () => {
               <CardContent className="p-8 text-center">
                 <h4 className="text-xl font-bold mb-2">Ready to Start?</h4>
                 <p className="mb-4 opacity-90">
-                  Schedule a free consultation to discuss your backend needs.
+                  Let's discuss how we can help with your backend development needs.
                 </p>
-                <Button variant="secondary" className="bg-white/20 hover:bg-white/30 text-white border-white/30">
-                  Schedule Consultation
-                </Button>
               </CardContent>
             </Card>
           </div>

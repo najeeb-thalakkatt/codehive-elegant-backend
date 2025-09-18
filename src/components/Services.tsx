@@ -51,7 +51,7 @@ const Services = () => {
   ];
 
   return (
-    <section id="services" className="py-20 bg-background">
+    <section id="services" className="py-20 relative">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16 fade-in">
           <h2 className="text-4xl md:text-5xl font-bold text-primary mb-6">
@@ -70,7 +70,7 @@ const Services = () => {
                 <div className="h-12 w-12 rounded-lg bg-accent/10 flex items-center justify-center mb-4">
                   <service.icon className="h-6 w-6 text-accent" />
                 </div>
-                <CardTitle className="text-xl text-primary">{service.title}</CardTitle>
+                <CardTitle className="text-xl text-card-foreground">{service.title}</CardTitle>
                 <CardDescription className="text-muted-foreground leading-relaxed">
                   {service.description}
                 </CardDescription>
@@ -80,7 +80,7 @@ const Services = () => {
                   {service.features.map((feature, featureIndex) => (
                     <li key={featureIndex} className="flex items-center text-sm">
                       <Zap className="h-4 w-4 text-accent mr-2 flex-shrink-0" />
-                      <span className="text-foreground">{feature}</span>
+                      <span className="text-card-foreground">{feature}</span>
                     </li>
                   ))}
                 </ul>
