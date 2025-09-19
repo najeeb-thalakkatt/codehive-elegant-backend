@@ -1,54 +1,38 @@
-import { Button } from "@/components/ui/button";
-import { ArrowRight, Code2, Database, Cloud } from "lucide-react";
+import { ArrowDown, Code2, Database, Cloud } from "lucide-react";
+import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
 const Hero = () => {
+  const { elementRef, isVisible } = useScrollAnimation();
+
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Floating Icons */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <Code2 className="absolute top-20 left-10 h-8 w-8 text-accent/30 animate-pulse" />
-        <Database className="absolute top-32 right-16 h-6 w-6 text-accent/40 animate-pulse delay-1000" />
-        <Cloud className="absolute bottom-40 left-20 h-10 w-10 text-accent/20 animate-pulse delay-2000" />
+    <section id="hero" className="relative min-h-screen flex items-center justify-center overflow-hidden pt-16">
+      {/* Animated background elements */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none opacity-20">
+        <Code2 className="absolute top-32 left-[10%] h-6 w-6 text-accent animate-pulse" />
+        <Database className="absolute top-48 right-[15%] h-5 w-5 text-accent animate-pulse" style={{ animationDelay: '1s' }} />
+        <Cloud className="absolute bottom-1/3 left-[20%] h-7 w-7 text-accent animate-pulse" style={{ animationDelay: '2s' }} />
       </div>
 
       {/* Content */}
-      <div className="relative z-10 text-center max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="fade-in">
-          <h1 className="text-5xl md:text-7xl font-bold text-primary mb-6">
-            Code<span className="text-accent">Hive</span>
+      <div ref={elementRef} className={`relative z-10 text-center max-w-5xl mx-auto px-6 lg:px-8 fade-in-up ${isVisible ? 'in-view' : ''}`}>
+        <div className="space-y-8">
+          <h1 className="text-6xl md:text-8xl font-display font-bold leading-tight">
+            <span className="gradient-text">Code</span>
+            <span className="text-primary">Hive</span>
           </h1>
-          <p className="text-xl md:text-2xl text-muted-foreground mb-4 font-light">
+          
+          <p className="text-xl md:text-2xl text-muted-foreground font-light max-w-2xl mx-auto">
             Backend Development Specialists
           </p>
-          <p className="text-lg md:text-xl text-muted-foreground mb-8 max-w-2xl mx-auto leading-relaxed">
-            Expert backend development delivering scalable solutions.
-          </p>
           
-          <div className="flex justify-center">
-            <a 
-              href="#contact"
-              className="inline-flex items-center px-8 py-4 text-lg font-medium text-accent-foreground bg-accent hover:bg-accent-hover transition-colors rounded-lg"
-            >
-              Contact Us
-              <ArrowRight className="ml-2 h-5 w-5" />
-            </a>
-          </div>
+          <p className="text-lg text-muted-foreground max-w-3xl mx-auto leading-relaxed">
+            Expert backend development delivering scalable solutions
+          </p>
         </div>
 
-        {/* Stats */}
-        <div className="slide-up mt-16 grid grid-cols-1 md:grid-cols-3 gap-8 max-w-3xl mx-auto">
-          <div className="text-center">
-            <div className="text-3xl md:text-4xl font-bold text-accent mb-2">Expert</div>
-            <div className="text-muted-foreground">Backend Development</div>
-          </div>
-          <div className="text-center">
-            <div className="text-3xl md:text-4xl font-bold text-accent mb-2">Scalable</div>
-            <div className="text-muted-foreground">Cloud Solutions</div>
-          </div>
-          <div className="text-center">
-            <div className="text-3xl md:text-4xl font-bold text-accent mb-2">Modern</div>
-            <div className="text-muted-foreground">Architecture</div>
-          </div>
+        {/* Scroll indicator */}
+        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
+          <ArrowDown className="h-5 w-5 text-accent" />
         </div>
       </div>
     </section>

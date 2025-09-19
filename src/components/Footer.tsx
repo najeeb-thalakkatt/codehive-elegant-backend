@@ -31,10 +31,10 @@ const Footer = () => {
           <div>
             <h4 className="text-lg font-semibold mb-4 text-primary">Contact</h4>
             <div className="space-y-3">
-              <div className="flex items-center">
+            <div className="flex items-center">
                 <Mail className="h-4 w-4 mr-3 text-accent" />
                 <span className="text-muted-foreground">
-                  hello@codehive.dev
+                  dev@codehives.se
                 </span>
               </div>
             </div>

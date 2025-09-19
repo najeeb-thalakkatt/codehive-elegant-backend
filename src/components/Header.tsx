@@ -1,90 +1,71 @@
-import { Button } from "@/components/ui/button";
-import { Menu, X } from "lucide-react";
 import { useState } from "react";
+import { Button } from "@/components/ui/button";
+import { Menu, X, Code2 } from "lucide-react";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
+  const navItems = [
+    { label: "About", href: "#about" },
+    { label: "Services", href: "#services" },
+    { label: "Experience", href: "#experience" },
+    { label: "Contact", href: "#contact" }
+  ];
+
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 backdrop-blur-soft bg-background/90 border-b border-border">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16">
+    <header className="fixed top-0 w-full z-50 bg-background/95 backdrop-blur-md border-b border-border/20">
+      <div className="container mx-auto px-6 lg:px-8">
+        <div className="flex justify-between items-center h-16">
           {/* Logo */}
-          <div className="flex-shrink-0">
-            <div className="flex items-center space-x-2">
-              <div className="h-8 w-8 bg-accent rounded-lg flex items-center justify-center">
-                <span className="text-accent-foreground font-bold text-sm">CH</span>
-              </div>
-              <h1 className="text-xl font-bold text-primary">CodeHive</h1>
+          <div className="flex items-center space-x-3">
+            <div className="w-8 h-8 rounded-lg bg-accent/20 flex items-center justify-center">
+              <Code2 className="h-5 w-5 text-accent" />
             </div>
+            <span className="text-xl font-display font-semibold gradient-text">CodeHive</span>
           </div>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex space-x-8">
-            <a href="#about" className="text-foreground hover:text-accent transition-colors">
-              About
-            </a>
-            <a href="#services" className="text-foreground hover:text-accent transition-colors">
-              Services
-            </a>
-            <a href="#experience" className="text-foreground hover:text-accent transition-colors">
-              Experience
-            </a>
-            <a href="#contact" className="text-foreground hover:text-accent transition-colors">
-              Contact
-            </a>
+          <nav className="hidden md:flex items-center space-x-8">
+            {navItems.map((item) => (
+              <a
+                key={item.label}
+                href={item.href}
+                className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors relative after:absolute after:left-0 after:bottom-[-4px] after:h-px after:w-0 hover:after:w-full after:bg-accent after:transition-all after:duration-300"
+              >
+                {item.label}
+              </a>
+            ))}
           </nav>
 
-
-          {/* Mobile Menu Button */}
-          <div className="md:hidden">
-            <Button
-              variant="ghost"
-              size="sm"
-              onClick={() => setIsMenuOpen(!isMenuOpen)}
-              aria-label="Toggle menu"
-            >
-              {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
-            </Button>
-          </div>
+          {/* Mobile menu button */}
+          <Button
+            variant="ghost"
+            size="icon"
+            className="md:hidden h-8 w-8"
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+          >
+            {isMenuOpen ? <X className="h-4 w-4" /> : <Menu className="h-4 w-4" />}
+          </Button>
         </div>
+
+        {/* Mobile Navigation */}
+        {isMenuOpen && (
+          <nav className="md:hidden py-4 border-t border-border/20">
+            <div className="flex flex-col space-y-4">
+              {navItems.map((item) => (
+                <a
+                  key={item.label}
+                  href={item.href}
+                  className="text-muted-foreground hover:text-foreground transition-colors"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  {item.label}
+                </a>
+              ))}
+            </div>
+          </nav>
+        )}
       </div>
-
-      {/* Mobile Navigation */}
-      {isMenuOpen && (
-        <div className="md:hidden bg-card border-t border-border">
-          <nav className="px-4 py-4 space-y-3">
-            <a
-              href="#about"
-              className="block text-foreground hover:text-accent transition-colors"
-              onClick={() => setIsMenuOpen(false)}
-            >
-              About
-            </a>
-            <a
-              href="#services"
-              className="block text-foreground hover:text-accent transition-colors"
-              onClick={() => setIsMenuOpen(false)}
-            >
-              Services
-            </a>
-            <a
-              href="#experience"
-              className="block text-foreground hover:text-accent transition-colors"
-              onClick={() => setIsMenuOpen(false)}
-            >
-              Experience
-            </a>
-            <a
-              href="#contact"
-              className="block text-foreground hover:text-accent transition-colors"
-              onClick={() => setIsMenuOpen(false)}
-            >
-              Contact
-            </a>
-          </nav>
-        </div>
-      )}
     </header>
   );
 };

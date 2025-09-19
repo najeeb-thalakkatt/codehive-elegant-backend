@@ -1,170 +1,122 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* CodeHive Design System - Professional backend consulting theme */
-
-@layer base {
-  :root {
-    /* Dark theme by default - Lovable inspired gradient */
-    --background: 220 15% 6%;
-    --foreground: 0 0% 98%;
-    
-    --card: 0 0% 100%;
-    --card-foreground: 220 15% 10%;
-    
-    --popover: 0 0% 100%;
-    --popover-foreground: 220 15% 10%;
-    
-    /* Primary - Clean white/light for text over dark */
-    --primary: 0 0% 98%;
-    --primary-foreground: 220 15% 6%;
-    --primary-hover: 0 0% 95%;
-    
-    /* Secondary - Subtle light for cards */
-    --secondary: 0 0% 96%;
-    --secondary-foreground: 220 15% 10%;
-    
-    /* Accent - Vibrant blue for highlights */
-    --accent: 213 93% 68%;
-    --accent-foreground: 0 0% 100%;
-    --accent-hover: 213 88% 63%;
-    
-    --muted: 220 15% 25%;
-    --muted-foreground: 0 0% 70%;
-    
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 0 0% 98%;
-    
-    --border: 220 15% 20%;
-    --input: 220 15% 20%;
-    --ring: 213 93% 68%;
-
-    --radius: 1rem;
-
-    --sidebar-background: 220 15% 8%;
-    --sidebar-foreground: 0 0% 95%;
-    --sidebar-primary: 213 93% 68%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 220 15% 15%;
-    --sidebar-accent-foreground: 0 0% 95%;
-    --sidebar-border: 220 15% 20%;
-    --sidebar-ring: 213 93% 68%;
-    
-    /* Beautiful Lovable-inspired gradients */
-    --gradient-hero: linear-gradient(135deg, 
-      hsl(220 15% 6%) 0%, 
-      hsl(250 50% 15%) 25%, 
-      hsl(280 60% 25%) 50%, 
-      hsl(320 40% 20%) 75%, 
-      hsl(10 50% 25%) 100%);
-    --gradient-card: linear-gradient(145deg, 
-      hsl(0 0% 100%) 0%, 
-      hsl(0 0% 98%) 100%);
-    --gradient-accent: linear-gradient(135deg, 
-      hsl(213 93% 68%) 0%, 
-      hsl(240 80% 75%) 100%);
-    
-    /* Elegant shadows */
-    --shadow-soft: 0 4px 20px -2px hsl(220 15% 0% / 0.15);
-    --shadow-medium: 0 8px 25px -5px hsl(220 15% 0% / 0.25);
-    --shadow-strong: 0 15px 35px -5px hsl(220 15% 0% / 0.35);
-    
-    /* Typography */
-    --font-heading: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-    --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-  }
+* {
+  @apply border-border;
 }
 
-@layer base {
-  * {
-    @apply border-border;
-  }
+:root {
+  /* Elegant Dark Theme */
+  --background: 210 15% 6%;
+  --foreground: 210 20% 92%;
+  
+  --card: 210 15% 8%;
+  --card-foreground: 210 20% 88%;
+  
+  --popover: 210 15% 8%;
+  --popover-foreground: 210 20% 88%;
+  
+  --primary: 210 40% 95%;
+  --primary-foreground: 210 15% 6%;
+  
+  --secondary: 210 15% 12%;
+  --secondary-foreground: 210 20% 88%;
+  
+  --muted: 210 15% 10%;
+  --muted-foreground: 210 10% 60%;
+  
+  --accent: 268 100% 78%;
+  --accent-foreground: 210 15% 6%;
+  
+  --destructive: 0 60% 50%;
+  --destructive-foreground: 210 20% 88%;
+  
+  --border: 210 15% 15%;
+  --input: 210 15% 15%;
+  --ring: 268 100% 78%;
+  
+  --radius: 0.75rem;
 
-  body {
-    @apply bg-background text-foreground font-body;
-    font-family: var(--font-body);
-    background: var(--gradient-hero);
-    background-attachment: fixed;
-    min-height: 100vh;
-  }
-
-  h1, h2, h3, h4, h5, h6 {
-    font-family: var(--font-heading);
-  }
+  /* Custom shadows */
+  --shadow-elegant: 0 4px 32px -8px hsl(268 100% 78% / 0.1);
+  --shadow-glow: 0 0 24px hsl(268 100% 78% / 0.15);
+  
+  /* Gradients */
+  --gradient-primary: linear-gradient(135deg, hsl(210 15% 8%) 0%, hsl(210 15% 6%) 100%);
+  --gradient-accent: linear-gradient(135deg, hsl(268 100% 78% / 0.1) 0%, hsl(268 80% 70% / 0.05) 100%);
 }
 
-@layer components {
-  /* Hero Section Styles */
-  .hero-background {
-    background: var(--gradient-hero);
-  }
-  
-  .card-gradient {
-    background: var(--gradient-card);
-    box-shadow: var(--shadow-soft);
-  }
-  
-  .accent-gradient {
-    background: var(--gradient-accent);
-  }
-  
-  /* Animation Classes */
-  .fade-in {
-    animation: fadeIn 0.6s ease-out;
-  }
-  
-  .slide-up {
-    animation: slideUp 0.8s ease-out;
-  }
-  
-  .scale-in {
-    animation: scaleIn 0.5s ease-out;
-  }
+body {
+  @apply bg-background text-foreground font-sans;
+  background: var(--gradient-primary);
+  font-family: 'Inter', sans-serif;
+  min-height: 100vh;
+  scroll-behavior: smooth;
 }
 
-@layer utilities {
-  .text-shadow {
-    text-shadow: 0 2px 4px hsl(215 35% 15% / 0.1);
-  }
-  
-  .backdrop-blur-soft {
-    backdrop-filter: blur(8px);
-  }
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 600;
 }
 
-/* Keyframes */
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+/* Scroll animations */
+.fade-in-up {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-@keyframes slideUp {
-  from {
-    opacity: 0;
-    transform: translateY(40px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+.fade-in-up.in-view {
+  opacity: 1;
+  transform: translateY(0);
 }
 
-@keyframes scaleIn {
-  from {
-    opacity: 0;
-    transform: scale(0.95);
-  }
-  to {
-    opacity: 1;
-    transform: scale(1);
-  }
+.fade-in-scale {
+  opacity: 0;
+  transform: scale(0.95);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.fade-in-scale.in-view {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* Elegant card styling */
+.elegant-card {
+  @apply bg-card/50 backdrop-blur-sm border border-border/50 rounded-2xl;
+  box-shadow: var(--shadow-elegant);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.elegant-card:hover {
+  box-shadow: var(--shadow-glow);
+  transform: translateY(-2px);
+}
+
+/* Gradient text */
+.gradient-text {
+  background: linear-gradient(135deg, hsl(var(--foreground)) 0%, hsl(var(--accent)) 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-size: 200% 200%;
+}
+
+/* Navigation dots */
+.nav-dot {
+  @apply w-2 h-2 rounded-full border border-accent/30 cursor-pointer transition-all duration-300;
+}
+
+.nav-dot.active {
+  @apply bg-accent border-accent scale-125;
+}
+
+/* Smooth scrolling sections */
+section {
+  scroll-margin-top: 2rem;
 }

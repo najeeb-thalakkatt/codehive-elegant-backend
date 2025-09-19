@@ -1,139 +1,105 @@
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Calendar, MapPin, Building } from "lucide-react";
+import { Building2, Users, Rocket } from "lucide-react";
+import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
 const Experience = () => {
+  const { elementRef, isVisible } = useScrollAnimation();
+
   const experiences = [
     {
-      company: "Enterprise Technology Company",
-      position: "Senior Backend Developer",
-      duration: "2020 - Present",
-      location: "Remote",
-      description: "Leading backend development for enterprise solutions, focusing on scalable system architecture and modern development practices.",
-      highlights: [
-        "Designed microservices architecture for high-traffic applications",
-        "Implemented cloud-native solutions with modern frameworks",
-        "Built robust APIs and data processing systems",
-        "Optimized database performance and scalability",
-        "Established DevOps practices and CI/CD pipelines"
-      ],
-      technologies: ["Python", "Golang", "Django", "FastAPI", "GraphQL", "PostgreSQL", "Docker", "Kubernetes"]
+      icon: Building2,
+      category: "Enterprise Solutions",
+      title: "Large-Scale Backend Systems",
+      description: "Architected and implemented enterprise-grade backend solutions handling millions of transactions.",
+      technologies: ["Microservices", "API Gateway", "Message Queues", "Load Balancing"]
     },
     {
-      company: "Gaming Technology Platform",
-      position: "Backend Developer",
-      duration: "2017 - 2020",
-      location: "Remote",
-      description: "Developed backend systems for high-performance gaming applications with global reach.",
-      highlights: [
-        "Built real-time backend systems for gaming platforms",
-        "Implemented event-driven architecture patterns",
-        "Developed containerized applications and microservices",
-        "Optimized systems for high-concurrency scenarios",
-        "Managed complex data processing workflows"
-      ],
-      technologies: ["Python", "Django", "PostgreSQL", "Redis", "Docker", "RabbitMQ"]
+      icon: Users,
+      category: "Team Leadership", 
+      title: "Development Team Management",
+      description: "Led cross-functional teams in delivering complex backend projects on time and within scope.",
+      technologies: ["Agile/Scrum", "Code Review", "Architecture Design", "DevOps"]
     },
     {
-      company: "Digital Solutions Provider",
-      position: "Software Developer", 
-      duration: "2015 - 2017",
-      location: "Remote",
-      description: "Built scalable backend solutions for enterprise clients across various industries.",
-      highlights: [
-        "Developed backend systems for data analytics platforms",
-        "Created ETL processes for large-scale data processing",
-        "Built REST APIs for client integrations",
-        "Implemented database optimization strategies"
-      ],
-      technologies: ["Python", "Java", "SQL", "REST APIs", "Data Processing"]
-    },
-    {
-      company: "Technology Consultancy",
-      position: "Software Engineer",
-      duration: "2012 - 2015", 
-      location: "Remote",
-      description: "Worked on enterprise solutions and cloud-based applications for digital transformation.",
-      highlights: [
-        "Developed enterprise backend applications", 
-        "Built cloud-based services and APIs",
-        "Implemented modern software development practices",
-        "Contributed to system architecture decisions"
-      ],
-      technologies: ["Java", "Spring", "SQL", "Cloud Platforms", "Web Services"]
+      icon: Rocket,
+      category: "Performance Optimization",
+      title: "System Performance & Scaling",
+      description: "Optimized existing systems achieving significant performance improvements and seamless scaling.",
+      technologies: ["Database Tuning", "Caching", "CDN", "Monitoring"]
     }
   ];
 
+  const technologies = [
+    "Python", "Django", "FastAPI", "PostgreSQL", "Redis", "Docker",
+    "Kubernetes", "AWS", "Microservices", "GraphQL", "REST APIs", "CI/CD"
+  ];
+
   return (
-    <section id="experience" className="py-20 relative">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16 fade-in">
-          <h2 className="text-4xl md:text-5xl font-bold mb-6">
-            <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
-              Experience & Expertise
-            </span>
+    <section id="experience" className="py-24 relative">
+      <div className="container mx-auto px-6 lg:px-8">
+        <div ref={elementRef} className={`text-center mb-16 fade-in-up ${isVisible ? 'in-view' : ''}`}>
+          <h2 className="text-4xl md:text-6xl font-display font-bold mb-8">
+            Experience & <span className="gradient-text">Expertise</span>
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-            Proven experience building scalable backend systems across various technology stacks.
+            Proven track record in delivering robust backend solutions across various industries
           </p>
         </div>
 
-        {/* Experience Timeline */}
-        <div className="space-y-8">
-          {experiences.map((exp, index) => (
-            <Card key={index} className="card-gradient border-border/50 hover:shadow-medium transition-all duration-300 scale-in">
-              <CardHeader>
-                <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
-                  <div>
-                    <CardTitle className="text-xl text-card-foreground flex items-center gap-2">
-                      <Building className="h-5 w-5 text-accent" />
-                      {exp.company}
-                    </CardTitle>
-                    <CardDescription className="text-lg font-medium text-muted-foreground mt-1">
-                      {exp.position}
-                    </CardDescription>
+        <div className="max-w-6xl mx-auto">
+          {/* Experience Cards */}
+          <div className="grid md:grid-cols-1 lg:grid-cols-3 gap-8 mb-16">
+            {experiences.map((exp, index) => (
+              <div 
+                key={index}
+                className={`elegant-card p-8 group fade-in-scale ${isVisible ? 'in-view' : ''}`}
+                style={{ animationDelay: `${index * 150}ms` }}
+              >
+                <div className="flex items-center mb-6">
+                  <div className="w-12 h-12 rounded-2xl bg-accent/10 flex items-center justify-center mr-4 group-hover:bg-accent/20 transition-colors">
+                    <exp.icon className="h-6 w-6 text-accent" />
                   </div>
-                  <div className="flex flex-col md:items-end gap-1">
-                    <div className="flex items-center text-muted-foreground">
-                      <Calendar className="h-4 w-4 mr-2" />
-                      <span className="text-sm">{exp.duration}</span>
-                    </div>
-                    <div className="flex items-center text-muted-foreground">
-                      <MapPin className="h-4 w-4 mr-2" />
-                      <span className="text-sm">{exp.location}</span>
-                    </div>
-                  </div>
+                  <Badge variant="secondary" className="text-xs bg-secondary/50">
+                    {exp.category}
+                  </Badge>
                 </div>
-              </CardHeader>
-              <CardContent>
-                <p className="text-muted-foreground mb-4 leading-relaxed">
+                
+                <h3 className="text-xl font-display font-semibold text-card-foreground mb-4">
+                  {exp.title}
+                </h3>
+                
+                <p className="text-muted-foreground mb-6 leading-relaxed">
                   {exp.description}
                 </p>
                 
-                <div className="mb-4">
-                  <h4 className="font-semibold text-card-foreground mb-2">Key Achievements:</h4>
-                  <ul className="list-disc list-inside space-y-1">
-                    {exp.highlights.map((highlight, hIndex) => (
-                      <li key={hIndex} className="text-muted-foreground text-sm">
-                        {highlight}
-                      </li>
-                    ))}
-                  </ul>
+                <div className="flex flex-wrap gap-2">
+                  {exp.technologies.map((tech, techIndex) => (
+                    <Badge key={techIndex} variant="outline" className="text-xs border-border/30">
+                      {tech}
+                    </Badge>
+                  ))}
                 </div>
+              </div>
+            ))}
+          </div>
 
-                <div>
-                  <h4 className="font-semibold text-card-foreground mb-2">Technologies:</h4>
-                  <div className="flex flex-wrap gap-2">
-                    {exp.technologies.map((tech) => (
-                      <Badge key={tech} variant="secondary" className="text-xs">
-                        {tech}
-                      </Badge>
-                    ))}
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
-          ))}
+          {/* Technologies */}
+          <div className={`text-center fade-in-up ${isVisible ? 'in-view' : ''}`}>
+            <h3 className="text-2xl font-display font-semibold text-primary mb-8">
+              Technologies & Tools
+            </h3>
+            <div className="flex flex-wrap justify-center gap-3 max-w-4xl mx-auto">
+              {technologies.map((tech, index) => (
+                <Badge 
+                  key={index} 
+                  variant="secondary" 
+                  className="text-sm py-2 px-4 bg-secondary/50 hover:bg-accent/10 transition-colors cursor-default border-border/30"
+                >
+                  {tech}
+                </Badge>
+              ))}
+            </div>
+          </div>
         </div>
       </div>
     </section>
