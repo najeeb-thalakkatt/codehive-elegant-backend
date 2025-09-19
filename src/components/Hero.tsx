@@ -21,25 +21,17 @@ const Hero = () => {
             Backend Development Specialists
           </p>
           <p className="text-lg md:text-xl text-muted-foreground mb-8 max-w-2xl mx-auto leading-relaxed">
-            Expert backend development consultancy delivering robust, scalable solutions 
-            that power modern applications and drive business growth.
+            Expert backend development delivering scalable solutions.
           </p>
           
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-            <Button 
-              size="lg" 
-              className="bg-accent hover:bg-accent-hover text-accent-foreground font-medium px-8 py-4 text-lg"
+          <div className="flex justify-center">
+            <a 
+              href="#contact"
+              className="inline-flex items-center px-8 py-4 text-lg font-medium text-accent-foreground bg-accent hover:bg-accent-hover transition-colors rounded-lg"
             >
-              Get Started
+              Contact Us
               <ArrowRight className="ml-2 h-5 w-5" />
-            </Button>
-            <Button 
-              variant="outline" 
-              size="lg"
-              className="border-border text-foreground hover:bg-secondary px-8 py-4 text-lg"
-            >
-              Learn More
-            </Button>
+            </a>
           </div>
         </div>
 

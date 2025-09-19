@@ -11,7 +11,12 @@ const Header = () => {
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <div className="flex-shrink-0">
-            <h1 className="text-2xl font-bold text-primary">CodeHive</h1>
+            <div className="flex items-center space-x-2">
+              <div className="h-8 w-8 bg-accent rounded-lg flex items-center justify-center">
+                <span className="text-accent-foreground font-bold text-sm">CH</span>
+              </div>
+              <h1 className="text-xl font-bold text-primary">CodeHive</h1>
+            </div>
           </div>
 
           {/* Desktop Navigation */}
@@ -30,12 +35,6 @@ const Header = () => {
             </a>
           </nav>
 
-          {/* CTA Button */}
-          <div className="hidden md:flex">
-            <Button variant="default" size="sm" className="bg-accent hover:bg-accent-hover">
-              Get Started
-            </Button>
-          </div>
 
           {/* Mobile Menu Button */}
           <div className="md:hidden">
@@ -83,9 +82,6 @@ const Header = () => {
             >
               Contact
             </a>
-            <Button variant="default" size="sm" className="w-full bg-accent hover:bg-accent-hover">
-              Get Started
-            </Button>
           </nav>
         </div>
       )}

@@ -58,8 +58,7 @@ const Services = () => {
             Our Services
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-            Comprehensive backend development services designed to power your applications 
-            with robust, scalable, and secure server-side solutions.
+            Backend development services for robust, scalable applications.
           </p>
         </div>
 

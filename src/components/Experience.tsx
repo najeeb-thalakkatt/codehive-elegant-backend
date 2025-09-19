@@ -68,12 +68,13 @@ const Experience = () => {
     <section id="experience" className="py-20 relative">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16 fade-in">
-          <h2 className="text-4xl md:text-5xl font-bold text-primary mb-6">
-            Experience & Expertise
+          <h2 className="text-4xl md:text-5xl font-bold mb-6">
+            <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
+              Experience & Expertise
+            </span>
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-            Years of experience building robust backend systems across various industries 
-            and technology stacks, delivering scalable solutions.
+            Proven experience building scalable backend systems across various technology stacks.
           </p>
         </div>
 

@@ -1,6 +1,6 @@
 import { Card } from "@/components/ui/card";
 import { CheckCircle, Code, Database, Cloud } from "lucide-react";
-import backendIllustration from "@/assets/backend-illustration.jpg";
+
 
 const About = () => {
   const highlights = [
@@ -13,21 +13,15 @@ const About = () => {
   return (
     <section id="about" className="py-20 relative">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
+        <div className="max-w-4xl mx-auto">
           {/* Content */}
           <div className="fade-in">
             <h2 className="text-4xl md:text-5xl font-bold text-primary mb-6">
               About CodeHive
             </h2>
-            <p className="text-lg text-muted-foreground mb-6 leading-relaxed">
-              CodeHive is a specialized backend development consultancy dedicated to building 
-              robust, scalable systems for modern applications. We combine deep technical 
-              expertise with industry best practices.
-            </p>
             <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
-              We focus exclusively on backend development, delivering high-performance solutions 
-              that power modern applications. From microservices architecture to cloud-native 
-              deployments, we craft backend systems that scale with your business.
+              Specialized backend development consultancy focused on building robust, scalable systems. 
+              From microservices to cloud deployments, we deliver solutions that scale with your business.
             </p>
 
             {/* Highlights */}
@@ -60,17 +54,6 @@ const About = () => {
             </div>
           </div>
 
-          {/* Image */}
-          <div className="scale-in lg:order-last">
-            <div className="relative">
-              <img 
-                src={backendIllustration} 
-                alt="Backend Development Illustration" 
-                className="rounded-2xl shadow-strong w-full"
-              />
-              <div className="absolute inset-0 bg-gradient-to-tr from-accent/10 to-transparent rounded-2xl"></div>
-            </div>
-          </div>
         </div>
       </div>
     </section>

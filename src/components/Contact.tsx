@@ -6,16 +6,16 @@ import { Textarea } from "@/components/ui/textarea";
 import { Mail, MapPin, Send } from "lucide-react";
 
 const Contact = () => {
-  const contactInfo = [
+const contactInfo = [
     {
       icon: Mail,
       label: "Email",
-      value: "hello@codehive.dev",
-      href: "#"
+      value: "dev@codehives.se",
+      href: "mailto:dev@codehives.se"
     },
     {
       icon: MapPin,
-      label: "Location",
+      label: "Location", 
       value: "Available Worldwide",
       href: null
     }
@@ -29,74 +29,16 @@ const Contact = () => {
             Let's Build Something Great
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-            Ready to transform your backend infrastructure? Let's discuss your project 
-            and explore how CodeHive can drive your success.
+            Ready to discuss your backend development needs? Get in touch.
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
-          {/* Contact Form */}
-          <Card className="card-gradient border-border/50 scale-in">
-            <CardHeader>
-              <CardTitle className="text-2xl text-card-foreground">Send us a Message</CardTitle>
-            </CardHeader>
-            <CardContent className="space-y-6">
-              <div className="grid md:grid-cols-2 gap-4">
-                <div className="space-y-2">
-                  <Label htmlFor="name" className="text-card-foreground">Name</Label>
-                  <Input 
-                    id="name" 
-                    placeholder="Your name" 
-                    className="border-border focus:border-accent"
-                  />
-                </div>
-                <div className="space-y-2">
-                  <Label htmlFor="email" className="text-card-foreground">Email</Label>
-                  <Input 
-                    id="email" 
-                    type="email" 
-                    placeholder="your@email.com" 
-                    className="border-border focus:border-accent"
-                  />
-                </div>
-              </div>
-              <div className="space-y-2">
-                <Label htmlFor="company" className="text-card-foreground">Company</Label>
-                <Input 
-                  id="company" 
-                  placeholder="Your company name" 
-                  className="border-border focus:border-accent"
-                />
-              </div>
-              <div className="space-y-2">
-                <Label htmlFor="project" className="text-card-foreground">Project Type</Label>
-                <Input 
-                  id="project" 
-                  placeholder="e.g., API Development, Cloud Migration, System Architecture" 
-                  className="border-border focus:border-accent"
-                />
-              </div>
-              <div className="space-y-2">
-                <Label htmlFor="message" className="text-card-foreground">Project Details</Label>
-                <Textarea 
-                  id="message" 
-                  placeholder="Tell us about your project requirements, timeline, and goals..."
-                  className="min-h-[120px] border-border focus:border-accent"
-                />
-              </div>
-              <p className="text-sm text-muted-foreground">
-                This form is for demonstration purposes. Please use the contact information below.
-              </p>
-            </CardContent>
-          </Card>
-
-          {/* Contact Information */}
+        <div className="max-w-2xl mx-auto">
           <div className="space-y-8">
             <div className="scale-in">
               <h3 className="text-2xl font-bold text-primary mb-6">Get In Touch</h3>
               <p className="text-muted-foreground mb-8 leading-relaxed">
-                Whether you need a complete backend overhaul or specific consulting services, 
-                CodeHive is here to help. We specialize in scalable solutions that grow with your business.
+                Specializing in scalable backend solutions that grow with your business.
               </p>
             </div>
 
